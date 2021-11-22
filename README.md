@@ -12,7 +12,13 @@ I'm really enjoying that a lot of these projects have game loop logic in the exa
 
 * After 13 rounds the game is over and the player's score is the total of each scoring category.
 
-## Tasks
+## Initial Project State
+
+<img src="https://i.imgur.com/cZh0H5w.png">
+
+Mostly visual and some game rules in but is very broken functionally, see */public/notes* for my thoughts about the starter code before diving into the project.
+
+# Tasks
 
 ### Draw Diagram of Components
 
