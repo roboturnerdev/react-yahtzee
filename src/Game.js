@@ -10,9 +10,10 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
+      dice: Array.from({ length: NUM_DICE }).map(d => 5),
       locked: Array(NUM_DICE).fill(false),
       rollsLeft: NUM_ROLLS,
+      isRolling: false,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -32,6 +33,13 @@ class Game extends Component {
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
+    this.animateRoll = this.animateRoll.bind(this);
+  }
+
+  animateRoll() {
+    this.setState({ isRolling:true }, () => {
+      setTimeout(this.roll, 1000);
+    });
   }
 
   roll(evt) {
@@ -41,13 +49,14 @@ class Game extends Component {
         st.locked[i] ? d : Math.ceil(Math.random() * 6)
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),  // no rolls left, all are locked
-      rollsLeft: st.rollsLeft - 1
+      rollsLeft: st.rollsLeft - 1,
+      isRolling: false
     }));
   }
 
   toggleLocked(idx) {
     // toggle whether idx is in locked or not
-    if(this.state.rollsLeft > 0) { // also make sure we have rolls left even consider toggling
+    if(this.state.rollsLeft > 0 && !this.state.isRolling) {
       this.setState(st => ({
         locked: [
           ...st.locked.slice(0, idx), 
@@ -79,12 +88,13 @@ class Game extends Component {
               locked={this.state.locked}
               handleClick={this.toggleLocked}
               disabled={this.state.rollsLeft === 0}
+              isRolling={this.state.isRolling}
             />
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
                 disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0}
-                onClick={this.roll}
+                onClick={this.animateRoll}
               >
                 {this.state.rollsLeft} Rerolls Left
               </button>
