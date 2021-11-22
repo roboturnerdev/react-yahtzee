@@ -12,7 +12,19 @@ I'm really enjoying that a lot of these projects have game loop logic in the exa
 
 * After 13 rounds the game is over and the player's score is the total of each scoring category.
 
-## Initial Project State
+## Complete: Takeaways
+
+* Largest React project yet. Saw a lot of moving pieces. State handled in `<Game />` and passing it's state as props down to `<Dice />` and `<Die />`, and also doing the same to `<ScoreTable />` and `<RuleRow />`.
+
+* Plenty of great example of game logic, from the *Rules.js* showing how to abstract the rules and implement them during rendering, to examples of hiding / disabling / modifying elements based on what happens in the game (disabling buttons, animations, style updates when a score is chosen, etc).
+
+* Overall I really enjoyed this great project. Initially I spent some time digging through the starter code to understand how it was setup and how the actual game was intended to work, and went from there. Colt does a great job explaining how to approach a project and read into how it's constructed, and to think efficiently as far as implementing features and reducing redundancy.
+
+<img src="https://i.imgur.com/HYvsSIL.png">
+<img src="https://i.imgur.com/Q4zqUhf.png">
+<img src="https://i.imgur.com/ddhBHfq.png">
+
+# Original Post / Initial Project State
 
 <img src="https://i.imgur.com/cZh0H5w.png">
 
