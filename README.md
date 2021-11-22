@@ -18,6 +18,7 @@ I'm really enjoying that a lot of these projects have game loop logic in the exa
 
   - read through the source code and make a diagram of the components, along with prop and state
   - as you read the code, think about what areas were easy to understand, and whether there were things that took longer to understand
+  - **My notes before diving into this project can be found in */public/notes/***
 
 ### Fix Clicking Dice
 
